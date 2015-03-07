@@ -2,7 +2,6 @@ language: python
 before_install:
     - sudo apt-get install python-pip python-virtualenv
 install:
-    - cd $HOME/scikit-learn
     - virtualenv venv
     - source venv/bin/activate
     - python setup.py build
