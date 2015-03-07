@@ -4,5 +4,6 @@ before_install:
 install:
     - virtualenv venv
     - source venv/bin/activate
+    - pip install numpy
     - python setup.py build
 script: bash continuous_integration/travis_test.sh
