@@ -114,6 +114,19 @@ def configuration(parent_package='', top_path=None):
 
     return config
 
+def is_scipy_installed():
+    try:
+        import scipy
+    except ImportError:
+        return False
+    return True
+
+def is_numpy_installed():
+    try:
+        import numpy
+    except ImportError:
+        return False
+    return True
 
 def setup_package():
     metadata = dict(name=DISTNAME,
@@ -162,8 +175,18 @@ def setup_package():
 
         metadata['version'] = VERSION
     else:
-        from numpy.distutils.core import setup
+        if is_numpy_installed() is False:
+            sys.stderr.write("Error: Numerical Python(NumPy) is not installed.\n"
+                             "scikit-learn requires NumPy.\n"
+                             "NumPy installation instructions: http://docs.scipy.org/doc/numpy/user/install.html\n")
+            sys.exit(1)
+        if is_scipy_installed() is False:
+            sys.stderr.write("Error: Scientific Python(SciPy) is not installed.\n"
+                             "scikit-learn requires SciPy.\n"
+                             "SciPy installation instructions: http://www.scipy.org/install.html\n")
+            #sys.exit(1)
 
+        from numpy.distutils.core import setup
         metadata['configuration'] = configuration
 
     setup(**metadata)
