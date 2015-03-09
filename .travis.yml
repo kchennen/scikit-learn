@@ -5,5 +5,6 @@ install:
     - virtualenv venv
     - source venv/bin/activate
     - pip install numpy
+    - pip install nose
     - python setup.py build
 script: bash continuous_integration/travis_test.sh
