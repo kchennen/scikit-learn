@@ -4,8 +4,8 @@ before_install:
 install:
     - virtualenv venv
     - source venv/bin/activate
-    - pip install numpy 1> /dev/null 2>/dev/null
+      #- pip install numpy 1> /dev/null 2>/dev/null
     - pip install nose
-    - bash continuous_integration/travis_install.sh
+      #- bash continuous_integration/travis_install.sh
     - python setup.py build
 script: bash continuous_integration/travis_test.sh

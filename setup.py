@@ -184,7 +184,7 @@ def setup_package():
             sys.stderr.write("Error: Scientific Python(SciPy) is not installed.\n"
                              "scikit-learn requires SciPy.\n"
                              "SciPy installation instructions: http://www.scipy.org/install.html\n")
-            #sys.exit(1)
+            sys.exit(1)
 
         from numpy.distutils.core import setup
         metadata['configuration'] = configuration
