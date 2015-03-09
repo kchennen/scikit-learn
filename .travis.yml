@@ -1,6 +1,6 @@
 language: python
 before_install:
-    - sudo apt-get install python-pip python-virtualenv
+    - sudo apt-get install python-pip python-virtualenv liblapack-dev libblas-dev
 install:
     - virtualenv venv
     - source venv/bin/activate
