@@ -1,11 +1,11 @@
 language: python
 before_install:
-    - sudo apt-get install python-pip python-virtualenv liblapack-dev libblas-dev
+    - sudo apt-get install python-pip python-virtualenv liblapack-dev libblas-dev gfortran
 install:
     - virtualenv venv
     - source venv/bin/activate
     - pip install numpy 1> /dev/null 2>/dev/null
     - pip install nose
-    - pip install scipy 1>/dev/null
+    - pip install scipy
     - python setup.py build
 script: bash continuous_integration/travis_test.sh
